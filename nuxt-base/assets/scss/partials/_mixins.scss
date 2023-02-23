@@ -1,0 +1,99 @@
+@mixin flexWrapper($direction, $wrap, $justify, $align) {
+  display: flex;
+  flex-wrap: $wrap;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin overlay($color, $opacity) {
+  background: fade($color, $opacity);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+@mixin cover {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+@mixin contain {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    display: table; // 2
+    content: " "; // 1
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin centerBlock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@function rem($pixels, $context: $theme-font-base) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return calc($pixels / $context * 1rem);
+}
+
+@mixin flexCentered($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: center;
+}
+@mixin flex50 {
+  display: flex;
+  flex: 0 0 50%;
+  flex-basis: 50%;
+  width: 50%;
+}
+@mixin flex100 {
+  display: flex;
+  flex: 0 0 100%;
+  flex-basis: 100%;
+  width: 100%;
+}
+
+// NVM USE 16
+// utilizziamo questa function per tornarci un valore
+// basato sulla vw o sulla vh.
+// in base a cosa scegliere se utilizzare  get-vw o get-vh?
+// get-vw: utilizzata per proprieta che si basano sulla larghezza dello schermo
+// es, width, left, right, font-size
+// get-vh: props come height, top e font-size in device mobile o tablet
+// *! uso:
+// .elemento {
+//   width: get-vw(200);
+//   height: get-vh(150);
+// }
+// ! for portrait resolution: you may need a multiplier
+// ! for small text sizes (<30), in order to adjust the font size
+// ! example: font-size: rvh(30,1.5)
+@function rvw($px-vw, $multiplier: 1) {
+  $base-vw: 1920px;
+  $px: $px-vw * $multiplier * 1px;
+  @return calc($px * 100vw / $base-vw);
+}
+@function rvh($px-vh, $multiplier: 1) {
+  $base-vh: 1080px;
+  $px: $px-vh * $multiplier * 1px;
+  @return calc($px * 100vh / $base-vh);
+}

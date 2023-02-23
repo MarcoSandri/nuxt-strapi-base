@@ -1,0 +1,46 @@
+.t-black {
+  font-weight: 900;
+}
+.t-extrabold {
+  font-weight: 800;
+}
+.t-bold {
+  font-weight: 700;
+}
+.t-semibold {
+  font-weight: 600;
+}
+.t-medium {
+  font-weight: 500;
+}
+.t-regular {
+  font-weight: 400;
+}
+.t-light {
+  font-weight: 300;
+}
+.t-italic {
+  font-style: italic;
+}
+.t-uppercase {
+  text-transform: uppercase;
+}
+.t-left {
+  text-align: left;
+}
+.t-center {
+  text-align: center;
+}
+.t-right {
+  text-align: right;
+}
+
+// sizes
+.t-40 {
+  font-size: rvw(40);
+  line-height: rvw(40);
+  @media screen and (orientation: portrait) {
+    font-size: rvh(40);
+    line-height: rvh(40);
+  }
+}
