@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "socials",
+  "info": {
+    "singularName": "social",
+    "pluralName": "socials",
+    "displayName": "Social"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "socialLink": {
+      "displayName": "Social Link",
+      "type": "component",
+      "repeatable": true,
+      "component": "social-link.social-link"
+    }
+  }
+}
